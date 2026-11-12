@@ -39,7 +39,12 @@ def synth_gemini(key, text, voice):
     )
     r = json.load(urllib.request.urlopen(req, timeout=180))
     part = r["candidates"][0]["content"]["parts"][0]["inlineData"]
-    return base64.b64decode(part["data"]), text, r.get("usageMetadata")
+    data = base64.b64decode(part["data"])
+    if data[:4] == b"RIFF":  # this model returns a complete WAV file: keep only its PCM data chunk
+        import io
+        with wave.open(io.BytesIO(data)) as inner:
+            data = inner.readframes(inner.getnframes())
+    return data, text, r.get("usageMetadata")
 
 
 def synth(key, text, voice):
