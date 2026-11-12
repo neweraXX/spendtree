@@ -7,3 +7,7 @@ node_modules/
 .near-credentials/
 sim/.near-credentials/
 ui/trace-ai.js
+video/voice/
+video/tts.py.log
+video/spendtree-demo-silent.mp4
+.DS_Store

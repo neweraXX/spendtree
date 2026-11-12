@@ -139,7 +139,7 @@ What we saw, honestly:
 - `sim/limits.mjs` depth cap and refund-racing-revoke on the sandbox; unit tests live at the bottom of `contract/src/lib.rs`.
 - `sim/eval.sh`, `sim/summarize.mjs` run several models × injection variants and build the results table.
 - `ui/index.html` static replay UI (no build step).
-- `video/` 78 s demo video (`spendtree-demo.mp4`) and the Docker toolchain that renders it from the UI and a real `run-demo.sh` output (`sh video/make.sh`).
+- `video/` 78 s narrated demo video (`spendtree-demo.mp4`) and the Docker toolchain that renders it from the UI and a real `run-demo.sh` output (`sh video/make.sh`); narration text in `video/narration.json`, voice by Gemini TTS (`video/tts.py`), mixed with `video/mux.sh`.
 - `run-demo.sh` one command: build the contract and run the scripted scenario in Docker.
 
 ## Limitations (honest)

@@ -1,0 +1,11 @@
+{
+  "voice": "marin",
+  "note": "Each segment starts at 'start' seconds and must finish before the next scene. Scenes: title 0-5, terminal 5-30, scripted UI 30-45, worst case + LLM table 45-70, end card 70-78.",
+  "segments": [
+    { "start": 0.4, "max": 4.6, "text": "AI agents now spawn other agents. Per-agent spending caps don't add up." },
+    { "start": 5.5, "max": 24.0, "text": "SpendTree is a NEAR contract that holds the team's budget, and every agent only gets a function-call key. Here, a prompt-injected agent forks twice from a six NEAR budget. One fork is rejected. A direct transfer is refused by the protocol, a failed payout is restored exactly once, and revoke takes back the unspent five NEAR." },
+    { "start": 31.0, "max": 13.5, "text": "The replay UI walks the same six steps on testnet. After every step, the books balance: deposit equals available, plus reserved, plus spent." },
+    { "start": 46.0, "max": 23.5, "text": "Now the worst case. A hired agent spawns four helpers and pushes money to an attacker. With per-agent caps, ten NEAR turns into thirty-one NEAR of spending power, and nine are lost. With SpendTree the loss stops at six, exactly what was delegated. In eleven live LLM runs, the loss always stayed inside the blast radius." },
+    { "start": 70.5, "max": 7.0, "text": "Delegation moves budget. It never copies it. SpendTree, built at NEAR Hackathon." }
+  ]
+}
