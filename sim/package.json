@@ -1,0 +1,7 @@
+{
+  "name": "spendtree-sim",
+  "private": true,
+  "type": "module",
+  "scripts": { "scenario": "node scenario.mjs" },
+  "dependencies": { "near-workspaces": "^5.0.0" }
+}

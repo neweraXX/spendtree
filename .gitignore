@@ -1,0 +1,9 @@
+target/
+.cargo-cache/
+node_modules/
+.env
+*.key
+.sandbox-bin/
+.near-credentials/
+sim/.near-credentials/
+ui/trace-ai.js

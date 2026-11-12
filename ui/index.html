@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpendTree</title>
+<style>
+  :root {
+    --bg: #f6f5f1; --panel: #ffffff; --ink: #1b1d1f; --muted: #6a6f75; --line: #e2e0d9;
+    --spent: #c2553a; --reserved: #d9a23b; --avail: #2f8f6a; --deleg: #8a93a0; --bad: #b3261e; --badbg: #fbe9e7; --okbg: #e6f3ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #131416; --panel: #1c1e21; --ink: #ecebe7; --muted: #9aa0a6; --line: #2c2f33;
+      --spent: #e0795e; --reserved: #e8b85a; --avail: #4fb38a; --deleg: #6f7782; --bad: #ff8a80; --badbg: #3a1f1d; --okbg: #17302a; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1080px; margin: 0 auto; padding: 28px 16px 60px; }
+  header h1 { margin: 0; font-size: 26px; letter-spacing: -0.01em; }
+  header p { margin: 4px 0 0; color: var(--muted); }
+  .meta { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); margin-top: 6px; }
+  .steps { display: flex; gap: 6px; flex-wrap: wrap; margin: 22px 0 12px; }
+  .steps button { border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 6px 10px; border-radius: 8px; cursor: pointer; font: inherit; font-size: 13px; }
+  .steps button.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .controls { display: flex; gap: 8px; margin-left: auto; }
+  .story { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .story h2 { margin: 0 0 4px; font-size: 18px; }
+  .story p { margin: 0; color: var(--muted); }
+  .equation { margin: 14px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-variant-numeric: tabular-nums; }
+  .pill { padding: 4px 10px; border-radius: 999px; font-weight: 600; font-size: 13px; }
+  .pill.ok { background: var(--okbg); color: var(--avail); }
+  .pill.bad { background: var(--badbg); color: var(--bad); }
+  .bigbar { flex: 1 1 260px; height: 14px; border-radius: 7px; overflow: hidden; display: flex; background: var(--line); }
+  .grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  .card h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .node { border-left: 2px solid var(--line); padding: 6px 0 6px 12px; margin: 4px 0; }
+  .node.root { border-left: none; padding-left: 0; }
+  .node .head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .node .name { font-weight: 650; }
+  .node .budget { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .tag { font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 4px; background: var(--badbg); color: var(--bad); }
+  .bar { height: 10px; border-radius: 5px; overflow: hidden; display: flex; background: var(--line); margin: 6px 0 2px; max-width: 420px; }
+  .bar span, .bigbar span { display: block; height: 100%; transition: width .4s ease; }
+  .nums { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .revoked { opacity: .55; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-top: 10px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+  .events { list-style: none; margin: 0; padding: 0; max-height: 460px; overflow: auto; }
+  .events li { padding: 7px 8px; border-radius: 8px; font-size: 13px; margin-bottom: 4px; }
+  .events li.new { outline: 1px solid var(--line); }
+  .events li.fail { background: var(--badbg); }
+  .events .k { font: 600 12px ui-monospace, Menlo, monospace; }
+  .events .n { color: var(--muted); font-size: 12px; }
+  .empty { color: var(--muted); }
+  .runs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .runs a { font-size: 13px; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; background: var(--panel); }
+  .runs a.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .meta a { color: inherit; }
+  .compare { margin-top: 18px; }
+  .compare .attack { margin: 0 0 10px; }
+  .compare table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .compare th, .compare td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); }
+  .compare td.bad { color: var(--bad); font-weight: 650; }
+  .compare td.good { color: var(--avail); font-weight: 650; }
+  .report { margin-top: 10px; font-size: 13px; color: var(--muted); white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>SpendTree</h1>
+    <p>AI agents can hand budget to sub-agents without multiplying money. Every agent holds only a function-call key to one NEAR contract.</p>
+    <div class="meta" id="meta"></div>
+    <nav class="runs"><a href="?run=scripted" id="runScripted">Scripted attack demo</a><a href="?run=ai" id="runAi">Adversary vs two policies + live LLM runs</a></nav>
+  </header>
+
+  <section class="card compare" id="compare" hidden>
+    <h3>Same agent actions, two spending policies</h3>
+    <p class="attack" id="attack"></p>
+    <table>
+      <thead><tr><th></th><th>Per-agent caps</th><th>SpendTree</th></tr></thead>
+      <tbody id="compareRows"></tbody>
+    </table>
+    <div id="evalBox" hidden>
+      <h3 style="margin-top:18px">Live LLM agents (NEAR AI Cloud)</h3>
+      <p class="nums" id="evalNote"></p>
+      <table><thead><tr><th>Model</th><th>Attack</th><th>Moved money toward attacker</th><th>Lost</th><th>Blast radius</th></tr></thead><tbody id="evalRows"></tbody></table>
+    </div>
+    <p class="nums">Per-agent caps: each agent gets its own limit and granting a limit to a sub-agent does not shrink yours, so limits add up as agents spawn agents. SpendTree: delegating moves budget, so the whole tree can never authorize more than was deposited.</p>
+  </section>
+
+  <div class="steps"><div id="stepBtns" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+    <div class="controls"><button id="prev">←</button><button id="play">Play</button><button id="next">→</button></div>
+  </div>
+
+  <section class="story"><h2 id="title"></h2><p id="story"></p></section>
+
+  <div class="equation" id="equation"></div>
+
+  <div class="grid">
+    <section class="card"><h3>Budget tree</h3><div id="tree"></div>
+      <div class="legend"><span><i style="background:var(--avail)"></i>available</span><span><i style="background:var(--deleg)"></i>delegated to children</span><span><i style="background:var(--reserved)"></i>reserved (payment in flight)</span><span><i style="background:var(--spent)"></i>spent</span></div>
+    </section>
+    <section class="card"><h3>On-chain events</h3><ul class="events" id="events"></ul></section>
+  </div>
+</main>
+<script>
+  const RUN = new URLSearchParams(location.search).get('run') === 'ai' ? 'ai' : 'scripted';
+  // ai view: the recorded testnet run first; a local ./run-demo.sh ai-replay (trace-ai.js) replaces it if present.
+  document.write(RUN === 'ai' ? '<script src="trace-worst-case.js"><\/script><script src="trace-ai.js"><\/script>' : '<script src="trace.js"><\/script>');
+  if (RUN === 'ai') document.write('<script src="eval.js"><\/script>');
+</script>
+<script>
+  const T = window.SPENDTREE_TRACE;
+  const $ = (id) => document.getElementById(id);
+  const near = (y) => (Number(BigInt(y) / 10n ** 21n) / 1000);
+  const fmt = (y) => near(y).toFixed(near(y) % 1 ? 2 : 0);
+  const short = (a) => (a || '').split('.')[0];
+  const pct = (v, t) => (t > 0 ? (near(v) / near(t)) * 100 : 0);
+  let cur = 0, timer = null;
+
+  if (!T) {
+    document.querySelector('main').innerHTML = '<p class="empty">No trace found. Run <code>./run-demo.sh</code> first; it writes ui/trace.js.</p>';
+  } else {
+    const link = (id) => (T.explorer ? `<a href="${T.explorer}/address/${id}" target="_blank" rel="noopener">${id}</a>` : id);
+    $('meta').innerHTML = `${T.mode ? T.mode + ' · ' : ''}network: ${T.network} · contract: ${link(T.contract)} · recorded ${T.generated}`;
+    $(RUN === 'ai' ? 'runAi' : 'runScripted').classList.add('on');
+    if (T.comparison) {
+      const c = T.comparison, a = c.per_agent_caps, s = c.spendtree;
+      $('compare').hidden = false;
+      $('attack').textContent = c.attack;
+      const row = (label, x, y, unit = ' NEAR') => `<tr><td>${label}</td><td class="${x > y ? 'bad' : ''}">${x}${unit}</td><td class="${y < x ? 'good' : ''}">${y}${unit}</td></tr>`;
+      $('compareRows').innerHTML =
+        row('Lost to the attacker', a.lost_to_attacker, s.lost_to_attacker) +
+        row('Legit payments blocked (treasury drained)', a.legit_payments_blocked, s.legit_payments_blocked, '') +
+        row(`Spending authorized from a ${fmt(T.steps[0].totals.total_deposit)} NEAR deposit`, a.authorized_total, s.authorized_total);
+      const E = window.SPENDTREE_EVAL;
+      if (E && E.length) {
+        $('evalBox').hidden = false;
+        const tried = E.filter((r) => r.followed_injection).length;
+        $('evalNote').textContent = `${E.length} live runs. Attackers moved money toward the collector in ${tried}. In every run SpendTree's loss stayed within the researcher's blast radius, which the planner set when it delegated.`;
+        $('evalRows').innerHTML = E.map((r) => `<tr><td>${r.model}</td><td>${r.attack}</td><td>${r.followed_injection ? 'tried' : 'no'}</td><td>${r.spendtree_lost} NEAR</td><td>${r.researcher_exposure} NEAR</td></tr>`).join('');
+      }
+      if (T.finalReport) $('compare').insertAdjacentHTML('beforeend', `<div class="report"><b>Planner's final report:</b> ${String(T.finalReport).replace(/</g, '&lt;')}</div>`);
+    }
+    T.steps.forEach((s, i) => {
+      const b = document.createElement('button');
+      b.textContent = `${s.step}. ${s.title}`;
+      b.onclick = () => { stop(); show(i); };
+      $('stepBtns').appendChild(b);
+    });
+    $('prev').onclick = () => { stop(); show(Math.max(0, cur - 1)); };
+    $('next').onclick = () => { stop(); show(Math.min(T.steps.length - 1, cur + 1)); };
+    $('play').onclick = () => (timer ? stop() : play());
+    show(0);
+  }
+
+  function play() {
+    $('play').textContent = 'Pause';
+    if (cur === T.steps.length - 1) show(0);
+    timer = setInterval(() => { if (cur >= T.steps.length - 1) return stop(); show(cur + 1); }, 4000);
+  }
+  function stop() { clearInterval(timer); timer = null; $('play').textContent = 'Play'; }
+
+  function bar(n, cls = 'bar') {
+    const t = n.budget;
+    return `<div class="${cls}"><span style="width:${pct(n.spent, t)}%;background:var(--spent)"></span><span style="width:${pct(n.reserved, t)}%;background:var(--reserved)"></span><span style="width:${pct(n.delegated, t)}%;background:var(--deleg)"></span><span style="width:${pct(n.available, t)}%;background:var(--avail)"></span></div>`;
+  }
+
+  function show(i) {
+    cur = i;
+    const s = T.steps[i];
+    [...$('stepBtns').children].forEach((b, j) => b.classList.toggle('on', j === i));
+    $('title').textContent = `${s.step}. ${s.title}`;
+    $('story').textContent = s.story;
+
+    const t = s.totals;
+    $('equation').innerHTML =
+      `<span class="pill ${t.conserved ? 'ok' : 'bad'}">${t.conserved ? 'Conserved' : 'BROKEN'}</span>` +
+      `<span>deposit <b>${fmt(t.total_deposit)}</b> = available <b>${fmt(t.available)}</b> + reserved <b>${fmt(t.reserved)}</b> + spent <b>${fmt(t.spent)}</b> NEAR</span>` +
+      `<div class="bigbar"><span style="width:${pct(t.spent, t.total_deposit)}%;background:var(--spent)"></span><span style="width:${pct(t.reserved, t.total_deposit)}%;background:var(--reserved)"></span><span style="width:${pct(t.available, t.total_deposit)}%;background:var(--avail)"></span></div>`;
+
+    const byId = Object.fromEntries(s.tree.map((n) => [n.account, n]));
+    const render = (n, root) => `
+      <div class="node ${root ? 'root' : ''} ${n.revoked ? 'revoked' : ''}">
+        <div class="head"><span class="name">${short(n.account)}</span><span class="budget">budget ${fmt(n.budget)} NEAR</span>${n.revoked ? '<span class="tag">REVOKED</span>' : ''}</div>
+        ${bar(n)}
+        <div class="nums">available ${fmt(n.available)} · delegated ${fmt(n.delegated)} · reserved ${fmt(n.reserved)} · spent ${fmt(n.spent)}</div>
+        ${n.children.filter((c) => byId[c]).map((c) => render(byId[c], false)).join('')}
+      </div>`;
+    $('tree').innerHTML = s.tree.filter((n) => !n.parent).map((n) => render(n, true)).join('');
+
+    const prevCount = i > 0 ? T.steps[i - 1].events.length : 0;
+    $('events').innerHTML = s.events.map((e, j) => {
+      const fail = !e.ok || e.kind.includes('rejected');
+      return `<li class="${fail ? 'fail' : ''} ${j >= prevCount ? 'new' : ''}"><span class="k">${e.kind}</span> ${short(e.actor)}${e.target ? ' → ' + short(e.target) : ''} · ${fmt(e.amount)} NEAR${e.note ? `<div class="n">${e.note.replace(/(\d{19,})/g, (m) => fmt(m) + ' NEAR').replace(/ yocto/g, '')}</div>` : ''}</li>`;
+    }).reverse().join('');
+  }
+</script>
+</body>
+</html>

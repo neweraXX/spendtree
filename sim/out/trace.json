@@ -1,0 +1,751 @@
+{
+  "generated": "2026-11-12T05:54:40.865Z",
+  "network": "sandbox",
+  "explorer": null,
+  "contract": "spendtree.test.near",
+  "accounts": {
+    "planner": "planner.test.near",
+    "researcher": "researcher.test.near",
+    "reviewer": "reviewer.test.near",
+    "vendor": "vendor.test.near"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "title": "Human funds 10 NEAR",
+      "story": "A human deposits 10 NEAR. The planner agent becomes the root of the spending tree. Every agent now holds only a function-call key to the contract.",
+      "tree": [
+        {
+          "account": "planner.test.near",
+          "parent": null,
+          "children": [],
+          "budget": "10000000000000000000000000",
+          "delegated": "0",
+          "reserved": "0",
+          "spent": "0",
+          "available": "10000000000000000000000000",
+          "revoked": false,
+          "exposure": "10000000000000000000000000"
+        }
+      ],
+      "totals": {
+        "total_deposit": "10000000000000000000000000",
+        "available": "10000000000000000000000000",
+        "reserved": "0",
+        "spent": "0",
+        "conserved": true
+      },
+      "events": [
+        {
+          "kind": "fund",
+          "actor": "human.test.near",
+          "target": "planner.test.near",
+          "amount": "10000000000000000000000000",
+          "ok": true,
+          "note": "root funded",
+          "block": 29
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "title": "Planner splits budget 6 / 4",
+      "story": "The planner gives 6 NEAR to the researcher and 4 NEAR to the reviewer. Its own spendable balance drops to 0: delegating removes authority, it does not copy it.",
+      "tree": [
+        {
+          "account": "planner.test.near",
+          "parent": null,
+          "children": [
+            "researcher.test.near",
+            "reviewer.test.near"
+          ],
+          "budget": "10000000000000000000000000",
+          "delegated": "10000000000000000000000000",
+          "reserved": "0",
+          "spent": "0",
+          "available": "0",
+          "revoked": false,
+          "exposure": "10000000000000000000000000"
+        },
+        {
+          "account": "researcher.test.near",
+          "parent": "planner.test.near",
+          "children": [],
+          "budget": "6000000000000000000000000",
+          "delegated": "0",
+          "reserved": "0",
+          "spent": "0",
+          "available": "6000000000000000000000000",
+          "revoked": false,
+          "exposure": "6000000000000000000000000"
+        },
+        {
+          "account": "reviewer.test.near",
+          "parent": "planner.test.near",
+          "children": [],
+          "budget": "4000000000000000000000000",
+          "delegated": "0",
+          "reserved": "0",
+          "spent": "0",
+          "available": "4000000000000000000000000",
+          "revoked": false,
+          "exposure": "4000000000000000000000000"
+        }
+      ],
+      "totals": {
+        "total_deposit": "10000000000000000000000000",
+        "available": "10000000000000000000000000",
+        "reserved": "0",
+        "spent": "0",
+        "conserved": true
+      },
+      "events": [
+        {
+          "kind": "fund",
+          "actor": "human.test.near",
+          "target": "planner.test.near",
+          "amount": "10000000000000000000000000",
+          "ok": true,
+          "note": "root funded",
+          "block": 29
+        },
+        {
+          "kind": "delegate",
+          "actor": "planner.test.near",
+          "target": "researcher.test.near",
+          "amount": "6000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 42
+        },
+        {
+          "kind": "delegate",
+          "actor": "planner.test.near",
+          "target": "reviewer.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 45
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "title": "Injected agent forks twice: 4 + 4 from 6",
+      "story": "A prompt-injected researcher spawns two sub-agents at the same time, 4 NEAR each, from a 6 NEAR budget. Only scout gets funded; the second fork is rejected on-chain.",
+      "tree": [
+        {
+          "account": "planner.test.near",
+          "parent": null,
+          "children": [
+            "researcher.test.near",
+            "reviewer.test.near"
+          ],
+          "budget": "10000000000000000000000000",
+          "delegated": "10000000000000000000000000",
+          "reserved": "0",
+          "spent": "0",
+          "available": "0",
+          "revoked": false,
+          "exposure": "10000000000000000000000000"
+        },
+        {
+          "account": "researcher.test.near",
+          "parent": "planner.test.near",
+          "children": [
+            "scout.test.near"
+          ],
+          "budget": "6000000000000000000000000",
+          "delegated": "4000000000000000000000000",
+          "reserved": "0",
+          "spent": "0",
+          "available": "2000000000000000000000000",
+          "revoked": false,
+          "exposure": "6000000000000000000000000"
+        },
+        {
+          "account": "reviewer.test.near",
+          "parent": "planner.test.near",
+          "children": [],
+          "budget": "4000000000000000000000000",
+          "delegated": "0",
+          "reserved": "0",
+          "spent": "0",
+          "available": "4000000000000000000000000",
+          "revoked": false,
+          "exposure": "4000000000000000000000000"
+        },
+        {
+          "account": "scout.test.near",
+          "parent": "researcher.test.near",
+          "children": [],
+          "budget": "4000000000000000000000000",
+          "delegated": "0",
+          "reserved": "0",
+          "spent": "0",
+          "available": "4000000000000000000000000",
+          "revoked": false,
+          "exposure": "4000000000000000000000000"
+        }
+      ],
+      "totals": {
+        "total_deposit": "10000000000000000000000000",
+        "available": "10000000000000000000000000",
+        "reserved": "0",
+        "spent": "0",
+        "conserved": true
+      },
+      "events": [
+        {
+          "kind": "fund",
+          "actor": "human.test.near",
+          "target": "planner.test.near",
+          "amount": "10000000000000000000000000",
+          "ok": true,
+          "note": "root funded",
+          "block": 29
+        },
+        {
+          "kind": "delegate",
+          "actor": "planner.test.near",
+          "target": "researcher.test.near",
+          "amount": "6000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 42
+        },
+        {
+          "kind": "delegate",
+          "actor": "planner.test.near",
+          "target": "reviewer.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 45
+        },
+        {
+          "kind": "delegate",
+          "actor": "researcher.test.near",
+          "target": "scout.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 48
+        },
+        {
+          "kind": "delegate_rejected",
+          "actor": "researcher.test.near",
+          "target": "critic.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": false,
+          "note": "rejected: asked 4000000000000000000000000 yocto, only 2000000000000000000000000 available",
+          "block": 48
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "title": "Direct transfer blocked, overspend rejected",
+      "story": "The researcher tries a plain NEAR transfer from its own account: the protocol refuses, its key can only call SpendTree. It then asks SpendTree to pay an attacker 3 NEAR with 2 available: rejected. A legitimate 1 NEAR payment to the vendor goes through.",
+      "tree": [
+        {
+          "account": "planner.test.near",
+          "parent": null,
+          "children": [
+            "researcher.test.near",
+            "reviewer.test.near"
+          ],
+          "budget": "10000000000000000000000000",
+          "delegated": "10000000000000000000000000",
+          "reserved": "0",
+          "spent": "0",
+          "available": "0",
+          "revoked": false,
+          "exposure": "9000000000000000000000000"
+        },
+        {
+          "account": "researcher.test.near",
+          "parent": "planner.test.near",
+          "children": [
+            "scout.test.near"
+          ],
+          "budget": "6000000000000000000000000",
+          "delegated": "4000000000000000000000000",
+          "reserved": "0",
+          "spent": "1000000000000000000000000",
+          "available": "1000000000000000000000000",
+          "revoked": false,
+          "exposure": "5000000000000000000000000"
+        },
+        {
+          "account": "reviewer.test.near",
+          "parent": "planner.test.near",
+          "children": [],
+          "budget": "4000000000000000000000000",
+          "delegated": "0",
+          "reserved": "0",
+          "spent": "0",
+          "available": "4000000000000000000000000",
+          "revoked": false,
+          "exposure": "4000000000000000000000000"
+        },
+        {
+          "account": "scout.test.near",
+          "parent": "researcher.test.near",
+          "children": [],
+          "budget": "4000000000000000000000000",
+          "delegated": "0",
+          "reserved": "0",
+          "spent": "0",
+          "available": "4000000000000000000000000",
+          "revoked": false,
+          "exposure": "4000000000000000000000000"
+        }
+      ],
+      "totals": {
+        "total_deposit": "10000000000000000000000000",
+        "available": "9000000000000000000000000",
+        "reserved": "0",
+        "spent": "1000000000000000000000000",
+        "conserved": true
+      },
+      "events": [
+        {
+          "kind": "fund",
+          "actor": "human.test.near",
+          "target": "planner.test.near",
+          "amount": "10000000000000000000000000",
+          "ok": true,
+          "note": "root funded",
+          "block": 29
+        },
+        {
+          "kind": "delegate",
+          "actor": "planner.test.near",
+          "target": "researcher.test.near",
+          "amount": "6000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 42
+        },
+        {
+          "kind": "delegate",
+          "actor": "planner.test.near",
+          "target": "reviewer.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 45
+        },
+        {
+          "kind": "delegate",
+          "actor": "researcher.test.near",
+          "target": "scout.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 48
+        },
+        {
+          "kind": "delegate_rejected",
+          "actor": "researcher.test.near",
+          "target": "critic.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": false,
+          "note": "rejected: asked 4000000000000000000000000 yocto, only 2000000000000000000000000 available",
+          "block": 48
+        },
+        {
+          "kind": "pay_rejected",
+          "actor": "researcher.test.near",
+          "target": "attacker.test.near",
+          "amount": "3000000000000000000000000",
+          "ok": false,
+          "note": "rejected: asked 3000000000000000000000000 yocto, only 2000000000000000000000000 available",
+          "block": 51
+        },
+        {
+          "kind": "pay_sent",
+          "actor": "researcher.test.near",
+          "target": "vendor.test.near",
+          "amount": "1000000000000000000000000",
+          "ok": true,
+          "note": "dataset purchase",
+          "block": 54
+        },
+        {
+          "kind": "pay_settled",
+          "actor": "researcher.test.near",
+          "target": "vendor.test.near",
+          "amount": "1000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 56
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "title": "Failed payout restored exactly once",
+      "story": "The reviewer pays a vendor id that does not exist. NEAR runs the transfer asynchronously; it fails, the contract callback restores the 2 NEAR once. Then a real 1.5 NEAR payment settles.",
+      "tree": [
+        {
+          "account": "planner.test.near",
+          "parent": null,
+          "children": [
+            "researcher.test.near",
+            "reviewer.test.near"
+          ],
+          "budget": "10000000000000000000000000",
+          "delegated": "10000000000000000000000000",
+          "reserved": "0",
+          "spent": "0",
+          "available": "0",
+          "revoked": false,
+          "exposure": "7500000000000000000000000"
+        },
+        {
+          "account": "researcher.test.near",
+          "parent": "planner.test.near",
+          "children": [
+            "scout.test.near"
+          ],
+          "budget": "6000000000000000000000000",
+          "delegated": "4000000000000000000000000",
+          "reserved": "0",
+          "spent": "1000000000000000000000000",
+          "available": "1000000000000000000000000",
+          "revoked": false,
+          "exposure": "5000000000000000000000000"
+        },
+        {
+          "account": "reviewer.test.near",
+          "parent": "planner.test.near",
+          "children": [],
+          "budget": "4000000000000000000000000",
+          "delegated": "0",
+          "reserved": "0",
+          "spent": "1500000000000000000000000",
+          "available": "2500000000000000000000000",
+          "revoked": false,
+          "exposure": "2500000000000000000000000"
+        },
+        {
+          "account": "scout.test.near",
+          "parent": "researcher.test.near",
+          "children": [],
+          "budget": "4000000000000000000000000",
+          "delegated": "0",
+          "reserved": "0",
+          "spent": "0",
+          "available": "4000000000000000000000000",
+          "revoked": false,
+          "exposure": "4000000000000000000000000"
+        }
+      ],
+      "totals": {
+        "total_deposit": "10000000000000000000000000",
+        "available": "7500000000000000000000000",
+        "reserved": "0",
+        "spent": "2500000000000000000000000",
+        "conserved": true
+      },
+      "events": [
+        {
+          "kind": "fund",
+          "actor": "human.test.near",
+          "target": "planner.test.near",
+          "amount": "10000000000000000000000000",
+          "ok": true,
+          "note": "root funded",
+          "block": 29
+        },
+        {
+          "kind": "delegate",
+          "actor": "planner.test.near",
+          "target": "researcher.test.near",
+          "amount": "6000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 42
+        },
+        {
+          "kind": "delegate",
+          "actor": "planner.test.near",
+          "target": "reviewer.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 45
+        },
+        {
+          "kind": "delegate",
+          "actor": "researcher.test.near",
+          "target": "scout.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 48
+        },
+        {
+          "kind": "delegate_rejected",
+          "actor": "researcher.test.near",
+          "target": "critic.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": false,
+          "note": "rejected: asked 4000000000000000000000000 yocto, only 2000000000000000000000000 available",
+          "block": 48
+        },
+        {
+          "kind": "pay_rejected",
+          "actor": "researcher.test.near",
+          "target": "attacker.test.near",
+          "amount": "3000000000000000000000000",
+          "ok": false,
+          "note": "rejected: asked 3000000000000000000000000 yocto, only 2000000000000000000000000 available",
+          "block": 51
+        },
+        {
+          "kind": "pay_sent",
+          "actor": "researcher.test.near",
+          "target": "vendor.test.near",
+          "amount": "1000000000000000000000000",
+          "ok": true,
+          "note": "dataset purchase",
+          "block": 54
+        },
+        {
+          "kind": "pay_settled",
+          "actor": "researcher.test.near",
+          "target": "vendor.test.near",
+          "amount": "1000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 56
+        },
+        {
+          "kind": "pay_sent",
+          "actor": "reviewer.test.near",
+          "target": "ghost-vendor-1794462871027.test.near",
+          "amount": "2000000000000000000000000",
+          "ok": true,
+          "note": "typo in vendor id",
+          "block": 59
+        },
+        {
+          "kind": "pay_refunded",
+          "actor": "reviewer.test.near",
+          "target": "ghost-vendor-1794462871027.test.near",
+          "amount": "2000000000000000000000000",
+          "ok": false,
+          "note": "transfer failed, amount restored",
+          "block": 61
+        },
+        {
+          "kind": "pay_sent",
+          "actor": "reviewer.test.near",
+          "target": "vendor.test.near",
+          "amount": "1500000000000000000000000",
+          "ok": true,
+          "note": "code review",
+          "block": 64
+        },
+        {
+          "kind": "pay_settled",
+          "actor": "reviewer.test.near",
+          "target": "vendor.test.near",
+          "amount": "1500000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 66
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "title": "Planner revokes the injected branch",
+      "story": "The planner pulls back everything the researcher branch has not spent: 5 of the 6 NEAR (1 NEAR was already spent on the vendor in step 4). The sub-agent tries to pay afterwards and is refused. The books still balance to 10 NEAR.",
+      "tree": [
+        {
+          "account": "planner.test.near",
+          "parent": null,
+          "children": [
+            "researcher.test.near",
+            "reviewer.test.near"
+          ],
+          "budget": "10000000000000000000000000",
+          "delegated": "5000000000000000000000000",
+          "reserved": "0",
+          "spent": "0",
+          "available": "5000000000000000000000000",
+          "revoked": false,
+          "exposure": "7500000000000000000000000"
+        },
+        {
+          "account": "researcher.test.near",
+          "parent": "planner.test.near",
+          "children": [
+            "scout.test.near"
+          ],
+          "budget": "1000000000000000000000000",
+          "delegated": "0",
+          "reserved": "0",
+          "spent": "1000000000000000000000000",
+          "available": "0",
+          "revoked": true,
+          "exposure": "0"
+        },
+        {
+          "account": "reviewer.test.near",
+          "parent": "planner.test.near",
+          "children": [],
+          "budget": "4000000000000000000000000",
+          "delegated": "0",
+          "reserved": "0",
+          "spent": "1500000000000000000000000",
+          "available": "2500000000000000000000000",
+          "revoked": false,
+          "exposure": "2500000000000000000000000"
+        },
+        {
+          "account": "scout.test.near",
+          "parent": "researcher.test.near",
+          "children": [],
+          "budget": "0",
+          "delegated": "0",
+          "reserved": "0",
+          "spent": "0",
+          "available": "0",
+          "revoked": true,
+          "exposure": "0"
+        }
+      ],
+      "totals": {
+        "total_deposit": "10000000000000000000000000",
+        "available": "7500000000000000000000000",
+        "reserved": "0",
+        "spent": "2500000000000000000000000",
+        "conserved": true
+      },
+      "events": [
+        {
+          "kind": "fund",
+          "actor": "human.test.near",
+          "target": "planner.test.near",
+          "amount": "10000000000000000000000000",
+          "ok": true,
+          "note": "root funded",
+          "block": 29
+        },
+        {
+          "kind": "delegate",
+          "actor": "planner.test.near",
+          "target": "researcher.test.near",
+          "amount": "6000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 42
+        },
+        {
+          "kind": "delegate",
+          "actor": "planner.test.near",
+          "target": "reviewer.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 45
+        },
+        {
+          "kind": "delegate",
+          "actor": "researcher.test.near",
+          "target": "scout.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 48
+        },
+        {
+          "kind": "delegate_rejected",
+          "actor": "researcher.test.near",
+          "target": "critic.test.near",
+          "amount": "4000000000000000000000000",
+          "ok": false,
+          "note": "rejected: asked 4000000000000000000000000 yocto, only 2000000000000000000000000 available",
+          "block": 48
+        },
+        {
+          "kind": "pay_rejected",
+          "actor": "researcher.test.near",
+          "target": "attacker.test.near",
+          "amount": "3000000000000000000000000",
+          "ok": false,
+          "note": "rejected: asked 3000000000000000000000000 yocto, only 2000000000000000000000000 available",
+          "block": 51
+        },
+        {
+          "kind": "pay_sent",
+          "actor": "researcher.test.near",
+          "target": "vendor.test.near",
+          "amount": "1000000000000000000000000",
+          "ok": true,
+          "note": "dataset purchase",
+          "block": 54
+        },
+        {
+          "kind": "pay_settled",
+          "actor": "researcher.test.near",
+          "target": "vendor.test.near",
+          "amount": "1000000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 56
+        },
+        {
+          "kind": "pay_sent",
+          "actor": "reviewer.test.near",
+          "target": "ghost-vendor-1794462871027.test.near",
+          "amount": "2000000000000000000000000",
+          "ok": true,
+          "note": "typo in vendor id",
+          "block": 59
+        },
+        {
+          "kind": "pay_refunded",
+          "actor": "reviewer.test.near",
+          "target": "ghost-vendor-1794462871027.test.near",
+          "amount": "2000000000000000000000000",
+          "ok": false,
+          "note": "transfer failed, amount restored",
+          "block": 61
+        },
+        {
+          "kind": "pay_sent",
+          "actor": "reviewer.test.near",
+          "target": "vendor.test.near",
+          "amount": "1500000000000000000000000",
+          "ok": true,
+          "note": "code review",
+          "block": 64
+        },
+        {
+          "kind": "pay_settled",
+          "actor": "reviewer.test.near",
+          "target": "vendor.test.near",
+          "amount": "1500000000000000000000000",
+          "ok": true,
+          "note": "",
+          "block": 66
+        },
+        {
+          "kind": "revoke",
+          "actor": "planner.test.near",
+          "target": "researcher.test.near",
+          "amount": "5000000000000000000000000",
+          "ok": true,
+          "note": "unspent budget returned",
+          "block": 69
+        }
+      ]
+    }
+  ]
+}
