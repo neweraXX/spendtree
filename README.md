@@ -149,7 +149,7 @@ What we saw, honestly:
 - SpendTree bounds and contains loss; it does not stop an injected agent from spending the budget it was given. The point is that the loss is known in advance (`exposure`) and cannot spread to siblings or grow by spawning agents.
 - The per-agent-caps baseline is a model of the common pattern (each agent has an independent cap, granting a cap does not reduce the granter's), not a specific product.
 - Agents must be pre-created NEAR accounts with a function-call key; on-demand account creation for new sub-agents is future work.
-- A tree is at most 8 levels deep and 64 agents wide, a deliberate bound on the work of `revoke` and the refund walk in `on_paid`. Stored event history keeps the first 256 events.
+- A tree is at most 8 levels deep and 64 agents wide, a deliberate bound on the work of `revoke` and the refund walk in `on_paid`. Stored event history keeps the first 256 events. Revoked agents keep their slot (their history stays readable), so the 64-agent cap counts them too; a branch can use up slots with tiny delegations, which the parent can stop by revoking it before it spawns more.
 - Testnet only. Not audited.
 
 ## Built with
