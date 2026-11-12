@@ -21,6 +21,8 @@ SpendTree makes delegation a **transfer of budget**, not a copy of a permission.
 
 ## Try it
 
+**Fastest (no install):** open the replay UI in a browser: [worst-case attack + live LLM results](https://neweraxx.github.io/spendtree/ui/?run=ai) · [scripted 6-step demo](https://neweraxx.github.io/spendtree/ui/). Demo video: [`video/spendtree-demo.mp4`](video/spendtree-demo.mp4).
+
 Everything runs in Docker. Nothing is installed on the host.
 
 ### 1. Scripted attack demo on a local NEAR sandbox (no keys, no network after setup)
