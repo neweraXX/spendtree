@@ -67,17 +67,18 @@ Open `ui/index.html?run=ai` to see the testnet worst-case run, the side-by-side 
 
 - `failed_payout_after_revoke_returns_to_active_ancestor`: the deepest agent (depth 8) pays, the branch above it is revoked before the transfer settles, then the transfer fails. The refund walks up 7 frozen ancestors to the root; nothing stays reserved, all 10 NEAR are back, books balance. (On the live sandbox the revoke usually wins the race, so this path is tested deterministically here.)
 - `depth_is_capped`: a 9th level is rejected (`delegation tree too deep`). The cap keeps the refund walk well inside the callback's 40 Tgas; `pay` requires at least 60 Tgas so the callback can never be starved.
+- `wide_tree_revokes_and_history_is_bounded` / `memo_is_truncated`: a tree holds at most 64 agents, stored event history stops at 256 entries (later events still go to receipt logs), memos are cut to 64 chars, so a cheap agent cannot bloat the contract's storage. On the sandbox, one `revoke` of a full 63-agent branch burns 16 Tgas of the 300 Tgas limit (`./run-demo.sh limits`).
 - `delegation_never_increases_authority`: spawning helpers does not grow a branch's `exposure`; an over-budget delegation is rejected and logged.
 
 ### 4. Live contract on NEAR testnet
 
 The scripted demo was also run on testnet:
 
-- Contract: [`spendtree.v2demo3126.spendtree-nfchfn.testnet`](https://testnet.nearblocks.io/address/spendtree.v2demo3126.spendtree-nfchfn.testnet)
+- Contract: [`spendtree.v3demo4395b.spendtree-nfchfn.testnet`](https://testnet.nearblocks.io/address/spendtree.v3demo4395b.spendtree-nfchfn.testnet)
 - Check the books yourself:
 
 ```bash
-curl -s https://rpc.testnet.fastnear.com -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"query","params":{"request_type":"call_function","finality":"final","account_id":"spendtree.v2demo3126.spendtree-nfchfn.testnet","method_name":"get_totals","args_base64":"e30="}}' | python3 -c "import sys,json;print(bytes(json.load(sys.stdin)['result']['result']).decode())"
+curl -s https://rpc.testnet.fastnear.com -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"query","params":{"request_type":"call_function","finality":"final","account_id":"spendtree.v3demo4395b.spendtree-nfchfn.testnet","method_name":"get_totals","args_base64":"e30="}}' | python3 -c "import sys,json;print(bytes(json.load(sys.stdin)['result']['result']).decode())"
 ```
 
 Expected: `{"total_deposit":"10000…","available":"7500…","reserved":"0","spent":"2500…","conserved":true}`.
@@ -86,7 +87,7 @@ Expected: `{"total_deposit":"10000…","available":"7500…","reserved":"0","spe
 
 ### A. Worst-case adversary on NEAR testnet (scripted, not an LLM)
 
-The hired researcher (6 NEAR) spawns 4 helpers with 3 NEAR each; every helper pays the attacker 3 NEAR; then the researcher pays 6 NEAR itself. The reviewer then pays 2 NEAR for real work and the planner revokes the researcher. Run on testnet: contract [`spendtree.v2worst3126.spendtree-nfchfn.testnet`](https://testnet.nearblocks.io/address/spendtree.v2worst3126.spendtree-nfchfn.testnet). The same action list is replayed against per-agent caps (`sim/attacks/worst-case.json`, `sim/agents.mjs`).
+The hired researcher (6 NEAR) spawns 4 helpers with 3 NEAR each; every helper pays the attacker 3 NEAR; then the researcher pays 6 NEAR itself. The reviewer then pays 2 NEAR for real work and the planner revokes the researcher. Run on testnet: contract [`spendtree.v3worst4207.spendtree-nfchfn.testnet`](https://testnet.nearblocks.io/address/spendtree.v3worst4207.spendtree-nfchfn.testnet). The same action list is replayed against per-agent caps (`sim/attacks/worst-case.json`, `sim/agents.mjs`).
 
 | | Per-agent caps | SpendTree |
 |---|---|---|
@@ -145,7 +146,7 @@ What we saw, honestly:
 - SpendTree bounds and contains loss; it does not stop an injected agent from spending the budget it was given. The point is that the loss is known in advance (`exposure`) and cannot spread to siblings or grow by spawning agents.
 - The per-agent-caps baseline is a model of the common pattern (each agent has an independent cap, granting a cap does not reduce the granter's), not a specific product.
 - Agents must be pre-created NEAR accounts with a function-call key; on-demand account creation for new sub-agents is future work.
-- The tree is at most 8 levels deep (root = 0), a deliberate bound on the refund walk in `on_paid`.
+- A tree is at most 8 levels deep and 64 agents wide, a deliberate bound on the work of `revoke` and the refund walk in `on_paid`. Stored event history keeps the first 256 events.
 - Testnet only. Not audited.
 
 ## Built with

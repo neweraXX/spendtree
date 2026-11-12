@@ -51,6 +51,30 @@ try {
   assert.equal(BigInt(root.available), N(10), 'the failed 0.5 NEAR and the revoked branch must all return to the root');
   const refundAfterRevoke = order.indexOf('revoke') !== -1 && order.indexOf('revoke') < order.indexOf('pay_refunded');
   console.log(refundAfterRevoke ? 'refund landed AFTER the revoke: walked up the frozen chain to a0' : 'refund landed before the revoke (race went the other way)');
+  // 3) Widest possible branch: a1 gets 62 children (tree full at 64 nodes), then ONE revoke freezes all 63.
+  //    Children are just ids in the contract; they do not need to exist as accounts.
+  const W2 = await createWorld({ names: ['b0', 'b1'], budget: 10 });
+  try {
+    await W2.accounts.b0.call(W2.contract, 'delegate', { child: W2.accounts.b1.accountId, amount: N(9).toString() });
+    for (let i = 0; i < 62; i++) {
+      await W2.accounts.b1.call(W2.contract, 'delegate', { child: `kid${i}.test.near`, amount: N(0.1).toString() });
+    }
+    let full = '';
+    try {
+      await W2.accounts.b1.call(W2.contract, 'delegate', { child: 'one-too-many.test.near', amount: N(0.1).toString() });
+    } catch (e) {
+      full = String(e);
+    }
+    assert.match(full, /tree is full/, '65th agent must be rejected');
+    const res = await W2.accounts.b0.callRaw(W2.contract, 'revoke', { child: W2.accounts.b1.accountId }, { gas: 300_000_000_000_000n });
+    assert.ok(res.succeeded, 'revoking a full-width branch must fit in one transaction');
+    const burnt = res.outcomes.reduce((s, o) => s + BigInt(o.gas_burnt), 0n);
+    const t2 = await W2.view('get_totals');
+    assert.equal(t2.conserved, true);
+    console.log(`full tree (64 agents): 65th rejected; one revoke froze 63 agents using ${Number(burnt / 10n ** 12n)} Tgas of the 300 Tgas limit`);
+  } finally {
+    await W2.worker.tearDown();
+  }
   console.log('LIMITS TEST PASSED');
 } finally {
   await W.worker.tearDown();

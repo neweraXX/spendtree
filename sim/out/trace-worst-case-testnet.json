@@ -1,9 +1,9 @@
 {
-  "generated": "2026-11-12T06:02:00.639Z",
+  "generated": "2026-11-12T06:19:27.621Z",
   "mode": "scripted worst-case adversary (not an LLM)",
   "network": "testnet",
   "explorer": "https://testnet.nearblocks.io",
-  "contract": "spendtree.v2worst3126.spendtree-nfchfn.testnet",
+  "contract": "spendtree.v3worst4207.spendtree-nfchfn.testnet",
   "comparison": {
     "attack": "The hired researcher spawns 4 helpers with 3 NEAR each, every helper pays the attacker 3 NEAR, then the researcher pays 6 NEAR itself. The reviewer then pays 2 NEAR for legitimate work and the planner revokes the researcher.",
     "attacker": "scripted",
@@ -29,7 +29,7 @@
       "story": "Every agent holds only a function-call key to SpendTree. No agent can move NEAR any other way.",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [],
           "budget": "10000000000000000000000000",
@@ -51,12 +51,12 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         }
       ]
     },
@@ -66,10 +66,10 @@
       "story": "delegate",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "6000000000000000000000000",
@@ -80,8 +80,8 @@
           "exposure": "10000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "6000000000000000000000000",
           "delegated": "0",
@@ -102,21 +102,21 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         }
       ]
     },
@@ -126,11 +126,11 @@
       "story": "delegate",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet",
-            "reviewer.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet",
+            "reviewer.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "9000000000000000000000000",
@@ -141,8 +141,8 @@
           "exposure": "10000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "6000000000000000000000000",
           "delegated": "0",
@@ -153,8 +153,8 @@
           "exposure": "6000000000000000000000000"
         },
         {
-          "account": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -175,30 +175,30 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322995
+          "block": 277324800
         }
       ]
     },
@@ -208,11 +208,11 @@
       "story": "delegate",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet",
-            "reviewer.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet",
+            "reviewer.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "9000000000000000000000000",
@@ -223,10 +223,10 @@
           "exposure": "10000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [
-            "helper1.v2worst3126.spendtree-nfchfn.testnet"
+            "helper1.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "3000000000000000000000000",
@@ -237,8 +237,8 @@
           "exposure": "6000000000000000000000000"
         },
         {
-          "account": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -249,8 +249,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -271,39 +271,39 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322995
+          "block": 277324800
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper1.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper1.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323001
+          "block": 277324805
         }
       ]
     },
@@ -313,11 +313,11 @@
       "story": "delegate",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet",
-            "reviewer.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet",
+            "reviewer.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "9000000000000000000000000",
@@ -328,11 +328,11 @@
           "exposure": "10000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [
-            "helper1.v2worst3126.spendtree-nfchfn.testnet",
-            "helper2.v2worst3126.spendtree-nfchfn.testnet"
+            "helper1.v3worst4207.spendtree-nfchfn.testnet",
+            "helper2.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "6000000000000000000000000",
@@ -343,8 +343,8 @@
           "exposure": "6000000000000000000000000"
         },
         {
-          "account": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -355,8 +355,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -367,8 +367,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -389,48 +389,48 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322995
+          "block": 277324800
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper1.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper1.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323001
+          "block": 277324805
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper2.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper2.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323008
+          "block": 277324810
         }
       ]
     },
@@ -440,11 +440,11 @@
       "story": "delegate_rejected: rejected: asked 3000000000000000000000000 yocto, only 0 available",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet",
-            "reviewer.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet",
+            "reviewer.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "9000000000000000000000000",
@@ -455,11 +455,11 @@
           "exposure": "10000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [
-            "helper1.v2worst3126.spendtree-nfchfn.testnet",
-            "helper2.v2worst3126.spendtree-nfchfn.testnet"
+            "helper1.v3worst4207.spendtree-nfchfn.testnet",
+            "helper2.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "6000000000000000000000000",
@@ -470,8 +470,8 @@
           "exposure": "6000000000000000000000000"
         },
         {
-          "account": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -482,8 +482,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -494,8 +494,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -516,57 +516,57 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322995
+          "block": 277324800
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper1.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper1.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323001
+          "block": 277324805
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper2.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper2.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323008
+          "block": 277324810
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper3.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper3.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323014
+          "block": 277324815
         }
       ]
     },
@@ -576,11 +576,11 @@
       "story": "delegate_rejected: rejected: asked 3000000000000000000000000 yocto, only 0 available",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet",
-            "reviewer.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet",
+            "reviewer.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "9000000000000000000000000",
@@ -591,11 +591,11 @@
           "exposure": "10000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [
-            "helper1.v2worst3126.spendtree-nfchfn.testnet",
-            "helper2.v2worst3126.spendtree-nfchfn.testnet"
+            "helper1.v3worst4207.spendtree-nfchfn.testnet",
+            "helper2.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "6000000000000000000000000",
@@ -606,8 +606,8 @@
           "exposure": "6000000000000000000000000"
         },
         {
-          "account": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -618,8 +618,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -630,8 +630,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -652,66 +652,66 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322995
+          "block": 277324800
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper1.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper1.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323001
+          "block": 277324805
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper2.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper2.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323008
+          "block": 277324810
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper3.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper3.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323014
+          "block": 277324815
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper4.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper4.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323020
+          "block": 277324820
         }
       ]
     },
@@ -721,11 +721,11 @@
       "story": "pay_settled (memo: escrow)",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet",
-            "reviewer.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet",
+            "reviewer.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "9000000000000000000000000",
@@ -736,11 +736,11 @@
           "exposure": "7000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [
-            "helper1.v2worst3126.spendtree-nfchfn.testnet",
-            "helper2.v2worst3126.spendtree-nfchfn.testnet"
+            "helper1.v3worst4207.spendtree-nfchfn.testnet",
+            "helper2.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "6000000000000000000000000",
@@ -751,8 +751,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -763,8 +763,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -775,8 +775,8 @@
           "exposure": "0"
         },
         {
-          "account": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -797,84 +797,84 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322995
+          "block": 277324800
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper1.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper1.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323001
+          "block": 277324805
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper2.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper2.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323008
+          "block": 277324810
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper3.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper3.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323014
+          "block": 277324815
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper4.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper4.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323020
+          "block": 277324820
         },
         {
           "kind": "pay_sent",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323027
+          "block": 277324825
         },
         {
           "kind": "pay_settled",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323029
+          "block": 277324827
         }
       ]
     },
@@ -884,11 +884,11 @@
       "story": "pay_settled (memo: escrow)",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet",
-            "reviewer.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet",
+            "reviewer.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "9000000000000000000000000",
@@ -899,11 +899,11 @@
           "exposure": "4000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [
-            "helper1.v2worst3126.spendtree-nfchfn.testnet",
-            "helper2.v2worst3126.spendtree-nfchfn.testnet"
+            "helper1.v3worst4207.spendtree-nfchfn.testnet",
+            "helper2.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "6000000000000000000000000",
@@ -914,8 +914,8 @@
           "exposure": "0"
         },
         {
-          "account": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -926,8 +926,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -938,8 +938,8 @@
           "exposure": "0"
         },
         {
-          "account": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -960,102 +960,102 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322995
+          "block": 277324800
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper1.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper1.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323001
+          "block": 277324805
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper2.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper2.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323008
+          "block": 277324810
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper3.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper3.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323014
+          "block": 277324815
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper4.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper4.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323020
+          "block": 277324820
         },
         {
           "kind": "pay_sent",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323027
+          "block": 277324825
         },
         {
           "kind": "pay_settled",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323029
+          "block": 277324827
         },
         {
           "kind": "pay_sent",
-          "actor": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323035
+          "block": 277324832
         },
         {
           "kind": "pay_settled",
-          "actor": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323037
+          "block": 277324834
         }
       ]
     },
@@ -1065,11 +1065,11 @@
       "story": "caller has no budget",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet",
-            "reviewer.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet",
+            "reviewer.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "9000000000000000000000000",
@@ -1080,11 +1080,11 @@
           "exposure": "4000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [
-            "helper1.v2worst3126.spendtree-nfchfn.testnet",
-            "helper2.v2worst3126.spendtree-nfchfn.testnet"
+            "helper1.v3worst4207.spendtree-nfchfn.testnet",
+            "helper2.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "6000000000000000000000000",
@@ -1095,8 +1095,8 @@
           "exposure": "0"
         },
         {
-          "account": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1107,8 +1107,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1119,8 +1119,8 @@
           "exposure": "0"
         },
         {
-          "account": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1141,102 +1141,102 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322995
+          "block": 277324800
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper1.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper1.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323001
+          "block": 277324805
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper2.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper2.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323008
+          "block": 277324810
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper3.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper3.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323014
+          "block": 277324815
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper4.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper4.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323020
+          "block": 277324820
         },
         {
           "kind": "pay_sent",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323027
+          "block": 277324825
         },
         {
           "kind": "pay_settled",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323029
+          "block": 277324827
         },
         {
           "kind": "pay_sent",
-          "actor": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323035
+          "block": 277324832
         },
         {
           "kind": "pay_settled",
-          "actor": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323037
+          "block": 277324834
         }
       ]
     },
@@ -1246,11 +1246,11 @@
       "story": "caller has no budget",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet",
-            "reviewer.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet",
+            "reviewer.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "9000000000000000000000000",
@@ -1261,11 +1261,11 @@
           "exposure": "4000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [
-            "helper1.v2worst3126.spendtree-nfchfn.testnet",
-            "helper2.v2worst3126.spendtree-nfchfn.testnet"
+            "helper1.v3worst4207.spendtree-nfchfn.testnet",
+            "helper2.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "6000000000000000000000000",
@@ -1276,8 +1276,8 @@
           "exposure": "0"
         },
         {
-          "account": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1288,8 +1288,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1300,8 +1300,8 @@
           "exposure": "0"
         },
         {
-          "account": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1322,102 +1322,102 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322995
+          "block": 277324800
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper1.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper1.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323001
+          "block": 277324805
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper2.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper2.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323008
+          "block": 277324810
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper3.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper3.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323014
+          "block": 277324815
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper4.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper4.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323020
+          "block": 277324820
         },
         {
           "kind": "pay_sent",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323027
+          "block": 277324825
         },
         {
           "kind": "pay_settled",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323029
+          "block": 277324827
         },
         {
           "kind": "pay_sent",
-          "actor": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323035
+          "block": 277324832
         },
         {
           "kind": "pay_settled",
-          "actor": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323037
+          "block": 277324834
         }
       ]
     },
@@ -1427,11 +1427,11 @@
       "story": "pay_rejected: rejected: asked 6000000000000000000000000 yocto, only 0 available (memo: bulk-escrow)",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet",
-            "reviewer.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet",
+            "reviewer.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "9000000000000000000000000",
@@ -1442,11 +1442,11 @@
           "exposure": "4000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [
-            "helper1.v2worst3126.spendtree-nfchfn.testnet",
-            "helper2.v2worst3126.spendtree-nfchfn.testnet"
+            "helper1.v3worst4207.spendtree-nfchfn.testnet",
+            "helper2.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "6000000000000000000000000",
@@ -1457,8 +1457,8 @@
           "exposure": "0"
         },
         {
-          "account": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1469,8 +1469,8 @@
           "exposure": "3000000000000000000000000"
         },
         {
-          "account": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1481,8 +1481,8 @@
           "exposure": "0"
         },
         {
-          "account": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1503,111 +1503,111 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322995
+          "block": 277324800
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper1.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper1.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323001
+          "block": 277324805
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper2.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper2.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323008
+          "block": 277324810
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper3.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper3.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323014
+          "block": 277324815
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper4.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper4.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323020
+          "block": 277324820
         },
         {
           "kind": "pay_sent",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323027
+          "block": 277324825
         },
         {
           "kind": "pay_settled",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323029
+          "block": 277324827
         },
         {
           "kind": "pay_sent",
-          "actor": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323035
+          "block": 277324832
         },
         {
           "kind": "pay_settled",
-          "actor": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323037
+          "block": 277324834
         },
         {
           "kind": "pay_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 6000000000000000000000000 yocto, only 0 available",
-          "block": 277323054
+          "block": 277324849
         }
       ]
     },
@@ -1617,11 +1617,11 @@
       "story": "pay_settled (memo: code review)",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet",
-            "reviewer.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet",
+            "reviewer.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "9000000000000000000000000",
@@ -1632,11 +1632,11 @@
           "exposure": "2000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [
-            "helper1.v2worst3126.spendtree-nfchfn.testnet",
-            "helper2.v2worst3126.spendtree-nfchfn.testnet"
+            "helper1.v3worst4207.spendtree-nfchfn.testnet",
+            "helper2.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "6000000000000000000000000",
@@ -1647,8 +1647,8 @@
           "exposure": "0"
         },
         {
-          "account": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1659,8 +1659,8 @@
           "exposure": "1000000000000000000000000"
         },
         {
-          "account": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1671,8 +1671,8 @@
           "exposure": "0"
         },
         {
-          "account": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1693,129 +1693,129 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322995
+          "block": 277324800
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper1.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper1.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323001
+          "block": 277324805
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper2.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper2.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323008
+          "block": 277324810
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper3.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper3.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323014
+          "block": 277324815
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper4.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper4.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323020
+          "block": 277324820
         },
         {
           "kind": "pay_sent",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323027
+          "block": 277324825
         },
         {
           "kind": "pay_settled",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323029
+          "block": 277324827
         },
         {
           "kind": "pay_sent",
-          "actor": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323035
+          "block": 277324832
         },
         {
           "kind": "pay_settled",
-          "actor": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323037
+          "block": 277324834
         },
         {
           "kind": "pay_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 6000000000000000000000000 yocto, only 0 available",
-          "block": 277323054
+          "block": 277324849
         },
         {
           "kind": "pay_sent",
-          "actor": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "vendor.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "2000000000000000000000000",
           "ok": true,
           "note": "code review",
-          "block": 277323060
+          "block": 277324855
         },
         {
           "kind": "pay_settled",
-          "actor": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "vendor.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "2000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323062
+          "block": 277324857
         }
       ]
     },
@@ -1825,11 +1825,11 @@
       "story": "0.000 NEAR of unspent budget returned to planner; researcher's branch is frozen.",
       "tree": [
         {
-          "account": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2worst3126.spendtree-nfchfn.testnet",
-            "reviewer.v2worst3126.spendtree-nfchfn.testnet"
+            "researcher.v3worst4207.spendtree-nfchfn.testnet",
+            "reviewer.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "9000000000000000000000000",
@@ -1840,11 +1840,11 @@
           "exposure": "2000000000000000000000000"
         },
         {
-          "account": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [
-            "helper1.v2worst3126.spendtree-nfchfn.testnet",
-            "helper2.v2worst3126.spendtree-nfchfn.testnet"
+            "helper1.v3worst4207.spendtree-nfchfn.testnet",
+            "helper2.v3worst4207.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "6000000000000000000000000",
@@ -1855,8 +1855,8 @@
           "exposure": "0"
         },
         {
-          "account": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1867,8 +1867,8 @@
           "exposure": "1000000000000000000000000"
         },
         {
-          "account": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1879,8 +1879,8 @@
           "exposure": "0"
         },
         {
-          "account": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "account": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "3000000000000000000000000",
           "delegated": "0",
@@ -1901,138 +1901,138 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "planner.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322957
+          "block": 277324766
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322989
+          "block": 277324794
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322995
+          "block": 277324800
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper1.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper1.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323001
+          "block": 277324805
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper2.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper2.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323008
+          "block": 277324810
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper3.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper3.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323014
+          "block": 277324815
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "helper4.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "helper4.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 0 available",
-          "block": 277323020
+          "block": 277324820
         },
         {
           "kind": "pay_sent",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323027
+          "block": 277324825
         },
         {
           "kind": "pay_settled",
-          "actor": "helper1.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper1.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323029
+          "block": 277324827
         },
         {
           "kind": "pay_sent",
-          "actor": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "escrow",
-          "block": 277323035
+          "block": 277324832
         },
         {
           "kind": "pay_settled",
-          "actor": "helper2.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "helper2.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "3000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323037
+          "block": 277324834
         },
         {
           "kind": "pay_rejected",
-          "actor": "researcher.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "collector.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "collector.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 6000000000000000000000000 yocto, only 0 available",
-          "block": 277323054
+          "block": 277324849
         },
         {
           "kind": "pay_sent",
-          "actor": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "vendor.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "2000000000000000000000000",
           "ok": true,
           "note": "code review",
-          "block": 277323060
+          "block": 277324855
         },
         {
           "kind": "pay_settled",
-          "actor": "reviewer.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "reviewer.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "vendor.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "2000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277323062
+          "block": 277324857
         },
         {
           "kind": "revoke",
-          "actor": "planner.v2worst3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2worst3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3worst4207.spendtree-nfchfn.testnet",
+          "target": "researcher.v3worst4207.spendtree-nfchfn.testnet",
           "amount": "0",
           "ok": true,
           "note": "unspent budget returned",
-          "block": 277323068
+          "block": 277324863
         }
       ]
     }

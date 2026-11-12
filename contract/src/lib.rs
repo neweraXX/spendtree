@@ -19,6 +19,12 @@ const CALLBACK_GAS: Gas = Gas::from_tgas(40);
 /// Root is depth 0. Deep enough for agent -> sub-agent -> helper chains, small
 /// enough that the refund walk in `on_paid` is cheap and bounded.
 const MAX_DEPTH: u32 = 8;
+/// Total agents in one tree. Bounds the work done by `revoke`/`freeze` and the
+/// storage an agent can make the contract pay for by spawning sub-agents.
+const MAX_NODES: u32 = 64;
+/// Stored event history is capped; later events still go to the receipt logs.
+const MAX_EVENTS: u32 = 256;
+const MAX_MEMO: usize = 64;
 
 #[near(serializers = [borsh])]
 #[derive(Clone)]
@@ -122,6 +128,7 @@ impl SpendTree {
         }
         require!(!self.nodes.contains_key(&child), "child already has a budget");
         require!(self.depth(&caller) < MAX_DEPTH, "delegation tree too deep");
+        require!(self.nodes.len() < MAX_NODES, "tree is full (64 agents)");
         node.delegated += amount;
         node.children.push(child.clone());
         self.nodes.insert(caller.clone(), node);
@@ -147,7 +154,8 @@ impl SpendTree {
         require!(env::prepaid_gas() >= CALLBACK_GAS.saturating_add(Gas::from_tgas(20)), "attach at least 60 Tgas to pay");
         node.reserved += amount;
         self.nodes.insert(caller.clone(), node);
-        self.log("pay_sent", caller.clone(), Some(recipient.clone()), amount, true, &memo.unwrap_or_default());
+        let memo: String = memo.unwrap_or_default().chars().take(MAX_MEMO).collect();
+        self.log("pay_sent", caller.clone(), Some(recipient.clone()), amount, true, &memo);
         Some(
             Promise::new(recipient.clone())
                 .transfer(NearToken::from_yoctonear(amount))
@@ -312,7 +320,9 @@ impl SpendTree {
     fn log(&mut self, kind: &str, actor: AccountId, target: Option<AccountId>, amount: u128, ok: bool, note: &str) {
         let e = Event { kind: kind.to_string(), actor, target, amount: U128(amount), ok, note: note.to_string(), block: env::block_height() };
         env::log_str(&format!("EVENT_JSON:{}", near_sdk::serde_json::to_string(&e).unwrap()));
-        self.events.push(e);
+        if self.events.len() < MAX_EVENTS {
+            self.events.push(e);
+        }
     }
 }
 
@@ -389,6 +399,42 @@ mod tests {
         ctx(&chain[8], 0);
         let r = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| c.delegate(chain[9].clone(), U128(ONE / 100))));
         assert!(r.is_err(), "9th level must be rejected");
+    }
+
+    #[test]
+    fn wide_tree_revokes_and_history_is_bounded() {
+        ctx(&accounts(0), 10 * ONE);
+        let mut c = SpendTree::new(id("p.near"));
+        ctx(&id("p.near"), 0);
+        for i in 1..64 {
+            ctx(&id("p.near"), 0);
+            c.delegate(id(&format!("w{i}.near")), U128(ONE / 100));
+        }
+        // revoking every branch of a full-width tree still works
+        for i in 1..64 {
+            ctx(&id("p.near"), 0);
+            c.revoke(id(&format!("w{i}.near")));
+        }
+        assert!(c.get_totals().conserved);
+        // spam rejected payments: stored history stops at MAX_EVENTS
+        for _ in 0..300 {
+            ctx(&id("p.near"), 0);
+            c.pay(id("x.near"), U128(100 * ONE), None);
+        }
+        ctx(&id("p.near"), 0);
+        assert_eq!(c.get_events(None).len() as u32, MAX_EVENTS);
+        // the tree is full: a 65th agent is rejected
+        let r = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| c.delegate(id("w64.near"), U128(ONE / 100))));
+        assert!(r.is_err(), "65th agent must be rejected");
+    }
+
+    #[test]
+    fn memo_is_truncated() {
+        ctx(&accounts(0), ONE);
+        let mut c = SpendTree::new(id("q.near"));
+        ctx(&id("q.near"), 0);
+        c.pay(id("v.near"), U128(ONE / 2), Some("m".repeat(500)));
+        assert_eq!(c.get_events(None).last().unwrap().note.len(), MAX_MEMO);
     }
 
     #[test]

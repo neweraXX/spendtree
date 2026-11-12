@@ -1,13 +1,13 @@
 {
-  "generated": "2026-11-12T06:00:13.605Z",
+  "generated": "2026-11-12T06:21:17.601Z",
   "network": "testnet",
   "explorer": "https://testnet.nearblocks.io",
-  "contract": "spendtree.v2demo3126.spendtree-nfchfn.testnet",
+  "contract": "spendtree.v3demo4395b.spendtree-nfchfn.testnet",
   "accounts": {
-    "planner": "planner.v2demo3126.spendtree-nfchfn.testnet",
-    "researcher": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-    "reviewer": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-    "vendor": "vendor.v2demo3126.spendtree-nfchfn.testnet"
+    "planner": "planner.v3demo4395b.spendtree-nfchfn.testnet",
+    "researcher": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+    "reviewer": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+    "vendor": "vendor.v3demo4395b.spendtree-nfchfn.testnet"
   },
   "steps": [
     {
@@ -16,7 +16,7 @@
       "story": "A human deposits 10 NEAR. The planner agent becomes the root of the spending tree. Every agent now holds only a function-call key to the contract.",
       "tree": [
         {
-          "account": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [],
           "budget": "10000000000000000000000000",
@@ -38,12 +38,12 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322792
+          "block": 277324964
         }
       ]
     },
@@ -53,11 +53,11 @@
       "story": "The planner gives 6 NEAR to the researcher and 4 NEAR to the reviewer. Its own spendable balance drops to 0: delegating removes authority, it does not copy it.",
       "tree": [
         {
-          "account": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2demo3126.spendtree-nfchfn.testnet",
-            "reviewer.v2demo3126.spendtree-nfchfn.testnet"
+            "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+            "reviewer.v3demo4395b.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "10000000000000000000000000",
@@ -68,8 +68,8 @@
           "exposure": "10000000000000000000000000"
         },
         {
-          "account": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "6000000000000000000000000",
           "delegated": "0",
@@ -80,8 +80,8 @@
           "exposure": "6000000000000000000000000"
         },
         {
-          "account": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "4000000000000000000000000",
           "delegated": "0",
@@ -102,44 +102,44 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322792
+          "block": 277324964
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322816
+          "block": 277324988
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322821
+          "block": 277324993
         }
       ]
     },
     {
       "step": 3,
       "title": "Injected agent forks twice: 4 + 4 from 6",
-      "story": "A prompt-injected researcher spawns two sub-agents at the same time, 4 NEAR each, from a 6 NEAR budget. Only critic gets funded; the second fork is rejected on-chain.",
+      "story": "A prompt-injected researcher spawns two sub-agents at the same time, 4 NEAR each, from a 6 NEAR budget. Only scout gets funded; the second fork is rejected on-chain.",
       "tree": [
         {
-          "account": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2demo3126.spendtree-nfchfn.testnet",
-            "reviewer.v2demo3126.spendtree-nfchfn.testnet"
+            "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+            "reviewer.v3demo4395b.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "10000000000000000000000000",
@@ -150,10 +150,10 @@
           "exposure": "10000000000000000000000000"
         },
         {
-          "account": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [
-            "critic.v2demo3126.spendtree-nfchfn.testnet"
+            "scout.v3demo4395b.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "4000000000000000000000000",
@@ -164,8 +164,8 @@
           "exposure": "6000000000000000000000000"
         },
         {
-          "account": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "4000000000000000000000000",
           "delegated": "0",
@@ -176,8 +176,8 @@
           "exposure": "4000000000000000000000000"
         },
         {
-          "account": "critic.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "scout.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "4000000000000000000000000",
           "delegated": "0",
@@ -198,48 +198,48 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322792
+          "block": 277324964
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322816
+          "block": 277324988
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322821
+          "block": 277324993
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "critic.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "scout.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322843
+          "block": 277325018
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "scout.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "critic.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 4000000000000000000000000 yocto, only 2000000000000000000000000 available",
-          "block": 277322843
+          "block": 277325018
         }
       ]
     },
@@ -249,11 +249,11 @@
       "story": "The researcher tries a plain NEAR transfer from its own account: the protocol refuses, its key can only call SpendTree. It then asks SpendTree to pay an attacker 3 NEAR with 2 available: rejected. A legitimate 1 NEAR payment to the vendor goes through.",
       "tree": [
         {
-          "account": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2demo3126.spendtree-nfchfn.testnet",
-            "reviewer.v2demo3126.spendtree-nfchfn.testnet"
+            "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+            "reviewer.v3demo4395b.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "10000000000000000000000000",
@@ -264,10 +264,10 @@
           "exposure": "9000000000000000000000000"
         },
         {
-          "account": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [
-            "critic.v2demo3126.spendtree-nfchfn.testnet"
+            "scout.v3demo4395b.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "4000000000000000000000000",
@@ -278,8 +278,8 @@
           "exposure": "5000000000000000000000000"
         },
         {
-          "account": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "4000000000000000000000000",
           "delegated": "0",
@@ -290,8 +290,8 @@
           "exposure": "4000000000000000000000000"
         },
         {
-          "account": "critic.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "scout.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "4000000000000000000000000",
           "delegated": "0",
@@ -312,75 +312,75 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322792
+          "block": 277324964
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322816
+          "block": 277324988
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322821
+          "block": 277324993
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "critic.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "scout.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322843
+          "block": 277325018
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "scout.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "critic.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 4000000000000000000000000 yocto, only 2000000000000000000000000 available",
-          "block": 277322843
+          "block": 277325018
         },
         {
           "kind": "pay_rejected",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "target": "attacker.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 2000000000000000000000000 available",
-          "block": 277322851
+          "block": 277325027
         },
         {
           "kind": "pay_sent",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "vendor.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "1000000000000000000000000",
           "ok": true,
           "note": "dataset purchase",
-          "block": 277322856
+          "block": 277325032
         },
         {
           "kind": "pay_settled",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "vendor.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "1000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322858
+          "block": 277325034
         }
       ]
     },
@@ -390,11 +390,11 @@
       "story": "The reviewer pays a vendor id that does not exist. NEAR runs the transfer asynchronously; it fails, the contract callback restores the 2 NEAR once. Then a real 1.5 NEAR payment settles.",
       "tree": [
         {
-          "account": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2demo3126.spendtree-nfchfn.testnet",
-            "reviewer.v2demo3126.spendtree-nfchfn.testnet"
+            "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+            "reviewer.v3demo4395b.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "10000000000000000000000000",
@@ -405,10 +405,10 @@
           "exposure": "7500000000000000000000000"
         },
         {
-          "account": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [
-            "critic.v2demo3126.spendtree-nfchfn.testnet"
+            "scout.v3demo4395b.spendtree-nfchfn.testnet"
           ],
           "budget": "6000000000000000000000000",
           "delegated": "4000000000000000000000000",
@@ -419,8 +419,8 @@
           "exposure": "5000000000000000000000000"
         },
         {
-          "account": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "4000000000000000000000000",
           "delegated": "0",
@@ -431,8 +431,8 @@
           "exposure": "2500000000000000000000000"
         },
         {
-          "account": "critic.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "scout.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "4000000000000000000000000",
           "delegated": "0",
@@ -453,111 +453,111 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322792
+          "block": 277324964
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322816
+          "block": 277324988
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322821
+          "block": 277324993
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "critic.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "scout.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322843
+          "block": 277325018
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "scout.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "critic.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 4000000000000000000000000 yocto, only 2000000000000000000000000 available",
-          "block": 277322843
+          "block": 277325018
         },
         {
           "kind": "pay_rejected",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "target": "attacker.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 2000000000000000000000000 available",
-          "block": 277322851
+          "block": 277325027
         },
         {
           "kind": "pay_sent",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "vendor.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "1000000000000000000000000",
           "ok": true,
           "note": "dataset purchase",
-          "block": 277322856
+          "block": 277325032
         },
         {
           "kind": "pay_settled",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "vendor.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "1000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322858
+          "block": 277325034
         },
         {
           "kind": "pay_sent",
-          "actor": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "ghost-vendor-1794463197446.testnet",
+          "actor": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "ghost-vendor-1794464463184.testnet",
           "amount": "2000000000000000000000000",
           "ok": true,
           "note": "typo in vendor id",
-          "block": 277322864
+          "block": 277325040
         },
         {
           "kind": "pay_refunded",
-          "actor": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "ghost-vendor-1794463197446.testnet",
+          "actor": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "ghost-vendor-1794464463184.testnet",
           "amount": "2000000000000000000000000",
           "ok": false,
           "note": "transfer failed, amount restored",
-          "block": 277322866
+          "block": 277325042
         },
         {
           "kind": "pay_sent",
-          "actor": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "vendor.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "1500000000000000000000000",
           "ok": true,
           "note": "code review",
-          "block": 277322871
+          "block": 277325047
         },
         {
           "kind": "pay_settled",
-          "actor": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "vendor.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "1500000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322873
+          "block": 277325049
         }
       ]
     },
@@ -567,11 +567,11 @@
       "story": "The planner pulls back everything the researcher branch has not spent: 5 of the 6 NEAR (1 NEAR was already spent on the vendor in step 4). The sub-agent tries to pay afterwards and is refused. The books still balance to 10 NEAR.",
       "tree": [
         {
-          "account": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "parent": null,
           "children": [
-            "researcher.v2demo3126.spendtree-nfchfn.testnet",
-            "reviewer.v2demo3126.spendtree-nfchfn.testnet"
+            "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+            "reviewer.v3demo4395b.spendtree-nfchfn.testnet"
           ],
           "budget": "10000000000000000000000000",
           "delegated": "5000000000000000000000000",
@@ -582,10 +582,10 @@
           "exposure": "7500000000000000000000000"
         },
         {
-          "account": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [
-            "critic.v2demo3126.spendtree-nfchfn.testnet"
+            "scout.v3demo4395b.spendtree-nfchfn.testnet"
           ],
           "budget": "1000000000000000000000000",
           "delegated": "0",
@@ -596,8 +596,8 @@
           "exposure": "0"
         },
         {
-          "account": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "4000000000000000000000000",
           "delegated": "0",
@@ -608,8 +608,8 @@
           "exposure": "2500000000000000000000000"
         },
         {
-          "account": "critic.v2demo3126.spendtree-nfchfn.testnet",
-          "parent": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "account": "scout.v3demo4395b.spendtree-nfchfn.testnet",
+          "parent": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "children": [],
           "budget": "0",
           "delegated": "0",
@@ -630,120 +630,120 @@
       "events": [
         {
           "kind": "fund",
-          "actor": "human.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "planner.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "human.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "planner.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "10000000000000000000000000",
           "ok": true,
           "note": "root funded",
-          "block": 277322792
+          "block": 277324964
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "6000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322816
+          "block": 277324988
         },
         {
           "kind": "delegate",
-          "actor": "planner.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322821
+          "block": 277324993
         },
         {
           "kind": "delegate",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "critic.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "scout.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322843
+          "block": 277325018
         },
         {
           "kind": "delegate_rejected",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "scout.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "critic.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "4000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 4000000000000000000000000 yocto, only 2000000000000000000000000 available",
-          "block": 277322843
+          "block": 277325018
         },
         {
           "kind": "pay_rejected",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "target": "attacker.testnet",
           "amount": "3000000000000000000000000",
           "ok": false,
           "note": "rejected: asked 3000000000000000000000000 yocto, only 2000000000000000000000000 available",
-          "block": 277322851
+          "block": 277325027
         },
         {
           "kind": "pay_sent",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "vendor.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "1000000000000000000000000",
           "ok": true,
           "note": "dataset purchase",
-          "block": 277322856
+          "block": 277325032
         },
         {
           "kind": "pay_settled",
-          "actor": "researcher.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "vendor.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "1000000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322858
+          "block": 277325034
         },
         {
           "kind": "pay_sent",
-          "actor": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "ghost-vendor-1794463197446.testnet",
+          "actor": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "ghost-vendor-1794464463184.testnet",
           "amount": "2000000000000000000000000",
           "ok": true,
           "note": "typo in vendor id",
-          "block": 277322864
+          "block": 277325040
         },
         {
           "kind": "pay_refunded",
-          "actor": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "ghost-vendor-1794463197446.testnet",
+          "actor": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "ghost-vendor-1794464463184.testnet",
           "amount": "2000000000000000000000000",
           "ok": false,
           "note": "transfer failed, amount restored",
-          "block": 277322866
+          "block": 277325042
         },
         {
           "kind": "pay_sent",
-          "actor": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "vendor.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "1500000000000000000000000",
           "ok": true,
           "note": "code review",
-          "block": 277322871
+          "block": 277325047
         },
         {
           "kind": "pay_settled",
-          "actor": "reviewer.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "vendor.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "reviewer.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "vendor.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "1500000000000000000000000",
           "ok": true,
           "note": "",
-          "block": 277322873
+          "block": 277325049
         },
         {
           "kind": "revoke",
-          "actor": "planner.v2demo3126.spendtree-nfchfn.testnet",
-          "target": "researcher.v2demo3126.spendtree-nfchfn.testnet",
+          "actor": "planner.v3demo4395b.spendtree-nfchfn.testnet",
+          "target": "researcher.v3demo4395b.spendtree-nfchfn.testnet",
           "amount": "5000000000000000000000000",
           "ok": true,
           "note": "unspent budget returned",
-          "block": 277322879
+          "block": 277325055
         }
       ]
     }
