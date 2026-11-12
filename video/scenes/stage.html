@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpendTree demo</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 100%; height: 100%; }
+  body {
+    background: #101a18; color: #f3fff9;
+    font-family: system-ui, sans-serif;
+  }
+  section { display: none; }
+  body.title #title, body.end #end {
+    height: 100vh; padding: 60px 48px;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+  }
+  .brand {
+    color: #64e7b1; font-size: 64px; font-weight: 750;
+    letter-spacing: -2px; margin: 0 0 36px;
+  }
+  .problem { font-size: 32px; line-height: 1.4; margin: 0; white-space: nowrap; }
+  .rule { width: 100px; height: 5px; background: #64e7b1; margin: 36px; }
+  #end h1 { font-size: 58px; line-height: 1.15; margin: 0 0 38px; }
+  #end p { font-size: 28px; line-height: 1.5; margin: 0; }
+  #end .repo { margin-top: 30px; color: #64e7b1; font-size: 34px; }
+  body.terminal #terminal {
+    display: flex; flex-direction: column;
+    height: 100vh; padding: 22px 26px 100px;
+  }
+  .terminal-head {
+    color: #64e7b1; font: 600 24px/1.4 monospace;
+    padding: 0 0 14px; border-bottom: 1px solid #345148;
+  }
+  pre {
+    flex: 1; min-height: 0; margin: 14px 0 0;
+    overflow: hidden; white-space: pre-wrap; overflow-wrap: anywhere;
+    tab-size: 3; color: #e1eee8;
+    font: 20px/1.4 "DejaVu Sans Mono", monospace;
+    font-variant-ligatures: none;
+  }
+  pre.passed { color: #8cf1c2; }
+</style>
+</head>
+<body>
+<section id="title">
+  <h1 class="brand">SpendTree on NEAR</h1>
+  <p class="problem">Agents spawn agents. Per-agent spending caps don't add up.</p>
+  <div class="rule"></div>
+</section>
+
+<section id="terminal">
+  <div class="terminal-head">$ ./run-demo.sh</div>
+  <pre id="log"></pre>
+</section>
+
+<section id="end">
+  <h1>Delegation moves budget,<br>never copies it.</h1>
+  <p>Built at NEAR HACKATHON<br>@NEARProtocol #NEARHackathon</p>
+  <p class="repo">github.com/neweraXX/spendtree</p>
+</section>
+
+<script>
+  const mode = new URLSearchParams(location.search).get('mode') || 'title';
+  document.body.className = mode;
+  let transcript = '';
+
+  window.ready = mode === 'terminal'
+    ? fetch('/demo-output.txt').then(async response => {
+        if (!response.ok) throw new Error('Missing video/demo-output.txt');
+        transcript = await response.text();
+      })
+    : Promise.resolve();
+
+  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+  async function typeTo(end, duration) {
+    const log = document.getElementById('log');
+    const from = log.textContent.length;
+    const start = performance.now();
+    await new Promise(resolve => {
+      function frame(now) {
+        const progress = Math.min(1, (now - start) / duration);
+        const length = from + Math.floor((end - from) * progress);
+        log.textContent = transcript.slice(0, length);
+        log.scrollTop = log.scrollHeight;
+        if (progress < 1) requestAnimationFrame(frame);
+        else resolve();
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+
+  window.replayTerminal = async () => {
+    await window.ready;
+    const markers = [
+      /^\[3\]/m, /^\[4\]/m, /^\[5\]/m, /^\[6\]/m,
+      /^ALL CHECKS PASSED:/m
+    ];
+    const boundaries = markers.map(pattern => transcript.search(pattern));
+    if (boundaries.some((value, i) =>
+      value < 0 || (i > 0 && value <= boundaries[i - 1])
+    )) throw new Error('Unexpected terminal transcript structure.');
+
+    const parts = [
+      {
+        end: boundaries[0], type: 3000, pause: 0,
+        caption: 'A human funds the planner. The planner delegates.'
+      },
+      {
+        end: boundaries[1], type: 2000, pause: 3000,
+        caption: 'Only one fork gets budget · delegate_rejected'
+      },
+      {
+        end: boundaries[2], type: 2000, pause: 3000,
+        caption: 'Direct transfer blocked. Overspend rejected.'
+      },
+      {
+        end: boundaries[3], type: 2000, pause: 0,
+        caption: 'Failed payout restored exactly once.'
+      },
+      {
+        end: boundaries[4], type: 2000, pause: 3000,
+        caption: 'Revoke returns 5 NEAR and freezes the branch.'
+      },
+      {
+        end: transcript.length, type: 1000, pause: 4000,
+        caption: 'ALL CHECKS PASSED · conservation held after every step'
+      }
+    ];
+
+    for (const part of parts) {
+      window.setCaption(part.caption);
+      await typeTo(part.end, part.type);
+      if (part.end === transcript.length) {
+        document.getElementById('log').classList.add('passed');
+      }
+      await sleep(part.pause);
+    }
+  };
+</script>
+</body>
+</html>
